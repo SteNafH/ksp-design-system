@@ -21,10 +21,7 @@
     ]
   },
   "targetDefaults": {
-    "test:knip": {
-      "cache": true,
-      "inputs": ["{workspaceRoot}/**/*"]
-    },
+    "test:knip": { "cache": true, "inputs": ["{workspaceRoot}/**/*"] },
     "test:sherif": {
       "cache": true,
       "inputs": ["{workspaceRoot}/**/package.json"]
@@ -56,5 +53,6 @@
       "dependsOn": ["build"],
       "inputs": ["production"]
     }
-  }
+  },
+  "nxCloudId": "671bf746ec8355a039694efc"
 }
