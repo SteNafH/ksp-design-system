@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  test-and-publish:
+    name: Test & Publish
+    if: github.repository == 'SteNafH/ksp-design-system'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Run Tests
+        run: pnpm run test:ci --parallel=3
+      - name: Publish
+        run: |
+          git config --global user.name 'Stefan Hilhorst'
+          git config --global user.email 'stefanhilhorst@users.noreply.github.com'
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+          pnpm run cipublish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
