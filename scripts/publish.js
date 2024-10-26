@@ -12,6 +12,10 @@ await publish({
       name: '@stenafh/ksp-components-react',
       packageDir: 'packages/ksp-components-react',
     },
+    {
+      name: '@stenafh/ksp-components-web',
+      packageDir: 'packages/ksp-components-web',
+    },
   ],
   branchConfigs: {
     main: {

@@ -1,19 +1,18 @@
 {
-  "name": "@stenafh/ksp-components-react",
-  "version": "0.0.1",
-  "description": "React Ui Component Library",
+  "name": "@stenafh/ksp-components-web",
+  "version": "0.0.0",
+  "description": "Web Ui Component Library",
   "author": "Stefan Hilhorst",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/SteNafH/ksp-design-system.git",
-    "directory": "packages/ksp-components-react"
+    "directory": "packages/ksp-components-web"
   },
   "scripts": {
     "clean": "rimraf ./dist && rimraf ./coverage",
     "test:eslint": "eslint ./src ./tests",
     "test:types": "tsc",
-    "test:lib": "vitest",
     "test:build": "publint --strict",
     "build": "vite build"
   },
@@ -45,5 +44,9 @@
     "@types/react": "^18.2.52",
     "@vitejs/plugin-react": "^4.3.3",
     "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@r2wc/react-to-web-component": "^2.0.3",
+    "@stenafh/ksp-components-react": "workspace:*"
   }
 }

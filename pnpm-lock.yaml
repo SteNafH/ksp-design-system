@@ -75,7 +75,79 @@ importers:
         specifier: ^2.1.3
         version: 2.1.3(@types/node@22.8.0)(jsdom@25.0.1)
 
+  examples/react:
+    dependencies:
+      '@stenafh/ksp-components-react':
+        specifier: workspace:*
+        version: link:../../packages/ksp-components-react
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/react':
+        specifier: ^18.3.3
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.1
+      '@vitejs/plugin-react':
+        specifier: ^4.3.3
+        version: 4.3.3(vite@5.4.10(@types/node@22.8.0))
+
+  examples/react-and-web:
+    dependencies:
+      '@stenafh/ksp-components-react':
+        specifier: workspace:*
+        version: link:../../packages/ksp-components-react
+      '@stenafh/ksp-components-web':
+        specifier: workspace:*
+        version: link:../../packages/ksp-components-web
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/react':
+        specifier: ^18.3.3
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.1
+      '@vitejs/plugin-react':
+        specifier: ^4.3.3
+        version: 4.3.3(vite@5.4.10(@types/node@22.8.0))
+
+  examples/web:
+    dependencies:
+      '@stenafh/ksp-components-web':
+        specifier: workspace:*
+        version: link:../../packages/ksp-components-web
+
   packages/ksp-components-react:
+    devDependencies:
+      '@types/react':
+        specifier: ^18.2.52
+        version: 18.3.12
+      '@vitejs/plugin-react':
+        specifier: ^4.3.3
+        version: 4.3.3(vite@5.4.10(@types/node@22.8.0))
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+
+  packages/ksp-components-web:
+    dependencies:
+      '@r2wc/react-to-web-component':
+        specifier: ^2.0.3
+        version: 2.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@stenafh/ksp-components-react':
+        specifier: workspace:*
+        version: link:../ksp-components-react
     devDependencies:
       '@types/react':
         specifier: ^18.2.52
@@ -542,6 +614,15 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@r2wc/core@1.1.0':
+    resolution: {integrity: sha512-pEgtPXhfgg8mv/MooU83cb5sXC2aQOXPLm9UX7E7Oz/OXmrnP5r8hD/nJL1empWxC4wo1YeBXvrFu8fXsMgGZQ==}
+
+  '@r2wc/react-to-web-component@2.0.3':
+    resolution: {integrity: sha512-nlDJ0LHiWLG/EFB5tBtA+9KLF2oMBeDSAXL08NUzAuj/ac+V0NkMl/RvCFdDFnyrPQqpzpD9uOvOY2E5IFpdCQ==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
 
   '@rollup/pluginutils@5.1.3':
     resolution: {integrity: sha512-Pnsb6f32CD2W3uCaLZIzDmeFyQ2b8UWMFI7xtwUezpcGBDVDW6y9XgAWIlARiGAo6eNF5FK5aQTr0LFyNyqq5A==}
@@ -3496,6 +3577,14 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@r2wc/core@1.1.0': {}
+
+  '@r2wc/react-to-web-component@2.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@r2wc/core': 1.1.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@rollup/pluginutils@5.1.3(rollup@4.24.0)':
     dependencies:
