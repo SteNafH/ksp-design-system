@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Button } from '@stenafh/ksp-components-react';
+import { Button } from '@stenafh/ksp-components-web';
 
 function App() {
   return <Button />;

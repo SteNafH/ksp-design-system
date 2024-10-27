@@ -43,7 +43,11 @@
   "devDependencies": {
     "@types/react": "^18.2.52",
     "@vitejs/plugin-react": "^4.3.3",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-externalize-deps": "^0.8.0",
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "dependencies": {
     "@r2wc/react-to-web-component": "^2.0.3",
