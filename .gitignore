@@ -33,8 +33,7 @@ stats.html
 *.log
 .cache
 .idea
-.nx/cache
-.nx/workspace-data
+.nx
 .pnpm-store
 .tsup
 

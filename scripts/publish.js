@@ -9,8 +9,8 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 await publish({
   packages: [
     {
-      name: '@stenafh/ksp-components-react',
-      packageDir: 'packages/ksp-components-react',
+      name: '@stenafh/ksp-components',
+      packageDir: 'packages/components',
     },
   ],
   branchConfigs: {
