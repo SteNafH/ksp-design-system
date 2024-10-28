@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import packageJson from './package.json';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -61,7 +61,7 @@ export default defineConfig(({ mode }) => ({
         }
       },
     }),
-  ],
+  ] as UserConfig['plugins'],
   define: {
     'process.env.NODE_ENV': `"${mode}"`,
   },

@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'url';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  plugins: [react()],
+  plugins: [react()] as UserConfig['plugins'],
   define: {
     'process.env.NODE_ENV': `"${mode}"`,
   },
