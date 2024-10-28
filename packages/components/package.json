@@ -1,5 +1,5 @@
 {
-  "name": "@stenafh/ksp-components-react",
+  "name": "@stenafh/ksp-components",
   "version": "0.0.1",
   "description": "React Ui Component Library",
   "author": "Stefan Hilhorst",
@@ -7,7 +7,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/SteNafH/ksp-design-system.git",
-    "directory": "packages/ksp-components-react"
+    "directory": "packages/components"
   },
   "scripts": {
     "clean": "rimraf ./dist && rimraf ./coverage",
@@ -18,14 +18,14 @@
     "build": "vite build"
   },
   "type": "module",
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/es/index.d.ts",
   "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.js",
+  "module": "dist/es/index.js",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "types": "./dist/es/index.d.ts",
+        "default": "./dist/es/index.js"
       },
       "require": {
         "types": "./dist/cjs/index.d.cts",
@@ -38,12 +38,17 @@
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "@r2wc/react-to-web-component": "^2.0.3"
+  },
   "peerDependencies": {
-    "react": ">=16"
+    "react": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.52",
+    "@types/react": "^18.2.0",
     "@vitejs/plugin-react": "^4.3.3",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }

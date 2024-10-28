@@ -1,9 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Button } from '@stenafh/ksp-components-web';
+import { KspButton } from '@stenafh/ksp-components';
 
 function App() {
-  return <Button />;
+  return <KspButton />;
 }
 
 const rootElement = document.getElementById('root')!;

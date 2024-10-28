@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@stenafh/ksp-components-web": "workspace:*"
+    "@stenafh/ksp-components": "workspace:*"
   },
   "browserslist": {
     "production": [

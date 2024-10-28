@@ -1,7 +1,10 @@
 import r2wc from '@r2wc/react-to-web-component';
 import type { ComponentType } from 'react';
 
-const createComponent = <T extends ComponentType>(name: string, component: T): T => {
+const createWebComponent = <T extends ComponentType>(
+  name: string,
+  component: T,
+): T => {
   const customElement = customElements.get(name);
   if (customElement) {
     return customElement.prototype.Component;
@@ -14,4 +17,4 @@ const createComponent = <T extends ComponentType>(name: string, component: T): T
   return component;
 };
 
-export { createComponent };
+export { createWebComponent };

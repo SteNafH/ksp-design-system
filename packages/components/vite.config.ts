@@ -1,5 +1,6 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import packageJson from './package.json';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 
@@ -18,12 +19,12 @@ function ensureImportFileExtension(content: string, extension: string) {
   return content;
 }
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     tsconfigPaths(),
     dts({
-      outDir: `dist/esm`,
+      outDir: 'dist/es',
       entryRoot: './src',
       include: './src',
       compilerOptions: {
@@ -42,7 +43,7 @@ export default defineConfig({
       },
     }),
     dts({
-      outDir: `dist/cjs`,
+      outDir: 'dist/cjs',
       entryRoot: './src',
       include: './src',
       compilerOptions: {
@@ -62,18 +63,32 @@ export default defineConfig({
     }),
   ],
   define: {
-    'process.env.NODE_ENV': '"production"',
+    'process.env.NODE_ENV': `"${mode}"`,
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
     lib: {
       entry: ['./src/index.ts'],
       formats: ['es', 'cjs'],
       fileName: (format) => {
         if (format === 'cjs') return 'cjs/[name].cjs';
-        return 'esm/[name].js';
+        return 'es/[name].js';
+      },
+    },
+    rollupOptions: {
+      external: ['react'],
+      output: {
+        chunkFileNames: '[format]/[name]-[hash].js',
       },
     },
   },
-});
+  test: {
+    name: packageJson.name,
+    dir: './tests',
+    watch: false,
+    environment: 'jsdom',
+    setupFiles: ['./tests/test-setup.ts'],
+    coverage: { enabled: true, provider: 'istanbul', include: ['src/**/*'] },
+    typecheck: { enabled: true },
+  },
+}));

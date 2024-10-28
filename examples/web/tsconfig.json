@@ -13,12 +13,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@stenafh/ksp-web-components": [
-        "./node_modules/@stenafh/ksp-components-web/dist"
-      ]
-    }
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["vite.config.ts"]
 }
