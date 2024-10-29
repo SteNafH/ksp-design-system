@@ -1,6 +1,11 @@
 name: ci
 
 on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: override release tag
+        required: false
   push:
     branches: [main]
 
@@ -44,3 +49,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          TAG: ${{ inputs.tag }}

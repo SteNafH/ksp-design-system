@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "moduleResolution": "Bundler"
+    "moduleResolution": "Bundler",
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["src", "tests", "eslint.config.js", "vite.config.ts"]
 }
