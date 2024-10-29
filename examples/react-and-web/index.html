@@ -11,7 +11,13 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <ksp-button></ksp-button>
+    <ksp-button id="button" auto-submit="5" on-ksp-click="log"></ksp-button>
+    <script>
+      function log() {
+        console.log('web');
+      }
+    </script>
+
     <div id="root"></div>
     <script type="module" src="./src/index.tsx"></script>
   </body>

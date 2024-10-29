@@ -8,6 +8,12 @@ const KspButton = createWebComponent(
       default: module.KspButton,
     })),
   ),
+  {
+    props: {
+      autoSubmit: 'number',
+      onKspClick: 'function',
+    },
+  },
 );
 
 export { KspButton };
